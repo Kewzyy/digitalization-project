@@ -3,6 +3,7 @@ import { TestComp } from 'src/components/core/test-component'
 import { SignInPage } from 'src/components/pages/sign-in-page'
 import { MAIN_PAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, FORGOT_PASSWORD_ROUTE } from 'src/constants'
 import { RestaurantPage } from 'src/components/pages/restaurant-page'
+import { FoodMenu } from 'src/components/core/food-menu-component'
 //TODO: uhmm fix this, add route params for app and modal
 export const appRoutes = [
   {
@@ -18,6 +19,13 @@ export const appRoutes = [
     key: 'Restauraunts',
     path: '/restaurant',
     component: RestaurantPage,
+    renderOnly: true,
+  },
+  {
+    title: 'RestaurantName | Food Menu. ',
+    key: 'FoodMenu',
+    path: '/foodmenu',
+    component: FoodMenu,
     renderOnly: true,
   },
   {
