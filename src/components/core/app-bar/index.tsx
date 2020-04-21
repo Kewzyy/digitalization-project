@@ -12,14 +12,13 @@ export const Appbar: React.FC<AppbarPropsType> = ({ darkTheme }) => {
     console.log('::: Logging In Securely ::: ')
     history.push('/log-in')
   }
+  const goingHome = () => {
+    history.push('/')
+  }
 
   return (
     <header className={css(darkTheme ? styles.darkAppBar : styles.appbar)}>
-      <div
-        className={css(darkTheme ? styles.logoDark : styles.logo)}
-        onClick={() => {
-          console.log('Going home...')
-        }}>
+      <div className={css(darkTheme ? styles.logoDark : styles.logo)} onClick={goingHome}>
         <Typography variant='h3'>Dine.</Typography>
       </div>
       <div className={css(styles.login)}>
