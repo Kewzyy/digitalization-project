@@ -1,1 +1,3 @@
-export interface AppbarPropsType { }
+export interface AppbarPropsType {
+  darkTheme?: boolean
+}

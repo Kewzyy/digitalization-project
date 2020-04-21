@@ -2,18 +2,18 @@ import { StyleSheet } from 'aphrodite'
 
 export const styles = StyleSheet.create({
   root: {
-    maxWidth: 275,
-    cursor: 'pointer',
-  },
-  bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
-  },
-  title: {
-    fontSize: 14,
-  },
-  pos: {
-    marginBottom: 12,
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+    height: 'calc(100vh - 96px)',
+    top: '96px',
+    position: 'relative',
+    // backgroundColor: '#3C3B3F',
+    backgroundColor: 'white',
+    overflow: 'auto',
+    '@media (max-width: 1520px)': {
+      justifyContent: 'center',
+    },
   },
 })
