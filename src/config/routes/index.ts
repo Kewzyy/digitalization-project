@@ -17,7 +17,7 @@ export const appRoutes = [
   {
     title: 'Restaurants | Dine. ',
     key: 'Restauraunts',
-    path: '/restaurant',
+    path: '/restaurants',
     component: RestaurantPage,
     renderOnly: true,
   },
