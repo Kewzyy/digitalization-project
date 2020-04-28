@@ -1,7 +1,8 @@
 import * as React from 'react'
 import { styles } from './styles'
+import { css } from 'aphrodite'
 import { FoodMenuPagePropsType } from './types'
-import { IMeal } from './types'
+import { meal } from './types'
 
 import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
@@ -12,45 +13,28 @@ import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
 
 export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
-  const useStyles = makeStyles((theme) => ({
-      root: {
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'space-around',
-        overflow: 'hidden',
-        backgroundColor: theme.palette.background.paper,
-      },
-      gridList: {
-        width: 500,
-        height: 450,
-      },
-      icon: {
-        color: 'rgba(255, 255, 255, 0.54)',
-      },
-  }));
 
-  const classes = useStyles();
-
-  let jsonObj: any = JSON.parse(props.meals);
-  let propMeals: IMeal[] = jsonObj;
-
-  console.log("props meals: ", props.meals);
-  //TODO: assign props.meals to meals properly
-  let meals: IMeal[];
-  meals = [];
+  let propMeals: meal[];
   if(props.meals !== null && typeof props.meals !== 'undefined'){
-    meals = props.meals;
+    propMeals = props.meals;
+  } else {
+    propMeals = [];
   }
 
+  console.log("props meals: ", propMeals);
+
   return (
-    <div className={classes.root}>
-      <GridList cellHeight={180} className={classes.gridList}>
+    <div className={css(styles.root)}>
+      <GridList cellHeight={180} className={css(styles.gridList)}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">Text can be inserted here</ListSubheader>
+          <ListSubheader component="div">This is auto food menu</ListSubheader>
         </GridListTile>
-        {meals.map((tile) => (
-          <GridListTile>
-            <GridListTileBar title={tile!.name} subtitle={<span>type: {tile.type}</span>} />
+        {propMeals!.map((meal) => (
+          <GridListTile key={meal.id}>
+            <GridListTileBar
+              title={meal.name}
+              subtitle={<span>meal type: {meal.type}</span>}
+            />
           </GridListTile>
         ))}
       </GridList>

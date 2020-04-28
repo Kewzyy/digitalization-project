@@ -9,8 +9,7 @@ export const styles = StyleSheet.create({
     backgroundColor: '#aaffcc',
   },
   gridList: {
-    width: 500,
-    height: 450,
+    width: '80%',
   },
   icon: {
     color: 'rgba(255, 255, 255, 0.54)',

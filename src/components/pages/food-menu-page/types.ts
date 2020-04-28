@@ -1,10 +1,10 @@
 
 
 export interface FoodMenuPagePropsType {
-  meals?: string[]
+  meals?: meal[]
 }
 
-export interface IMeal {
+export type meal = {
     id: number;
     name: string;
     type: string;
