@@ -31,7 +31,7 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
         </GridListTile>
         {propMeals!.map((meal) => (
           <GridListTile key={meal._id}>
-            <img src={process.env.PUBLIC_URL + "/img/meals/" + meal._id + '.jpg'} alt={meal.name}/>
+            <img src={process.env.PUBLIC_URL + "/img/meals/" + meal._id + '.png'} alt={meal.name}/>
             <GridListTileBar
               title={meal.name}
               subtitle={<span>{meal.type} <div className = {css(styles.price)}>  {meal.price} €</div></span>}
