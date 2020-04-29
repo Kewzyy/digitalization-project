@@ -6,7 +6,7 @@ export const request = require('request');
 export const FoodMenu: React.FC = props => {
   const [result, setResult] = React.useState([]);
 
-  const mealType = ''; //TODO: props.mealType ?
+  const mealType = 'dessert'; //TODO: props.mealType ?
 
   React.useEffect(() => {
     async function getMealList() {
@@ -31,7 +31,7 @@ export const FoodMenu: React.FC = props => {
     getMealList();
 
   }, [mealType]);
-  console.log("RESULT: ", result)
+  //console.log("RESULT: ", result)
   return <FoodMenuPage meals={result} />
 
 }

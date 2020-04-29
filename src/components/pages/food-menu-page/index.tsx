@@ -25,15 +25,16 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
 
   return (
     <div className={css(styles.root)}>
-      <GridList cellHeight={180} className={css(styles.gridList)}>
+      <GridList cellHeight={250} className={css(styles.gridList)}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">This is auto food menu</ListSubheader>
+          <ListSubheader component="div">This is a food menu</ListSubheader>
         </GridListTile>
         {propMeals!.map((meal) => (
-          <GridListTile key={meal.id}>
+          <GridListTile key={meal._id}>
+            <img src={process.env.PUBLIC_URL + "/img/meals/" + meal._id + '.jpg'} alt={meal.name}/>
             <GridListTileBar
               title={meal.name}
-              subtitle={<span>meal type: {meal.type}</span>}
+              subtitle={<span>{meal.type} <div className = {css(styles.price)}>  {meal.price} €</div></span>}
             />
           </GridListTile>
         ))}

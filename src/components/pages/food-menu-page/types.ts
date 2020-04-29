@@ -5,7 +5,7 @@ export interface FoodMenuPagePropsType {
 }
 
 export type meal = {
-    id: number;
+    _id: number;
     name: string;
     type: string;
     price: number;
