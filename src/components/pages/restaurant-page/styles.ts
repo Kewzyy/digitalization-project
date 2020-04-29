@@ -9,8 +9,7 @@ export const styles = StyleSheet.create({
     height: 'calc(100vh - 96px)',
     top: '96px',
     position: 'relative',
-    // backgroundColor: '#3C3B3F',
-    backgroundColor: 'white',
+    backgroundColor: '#f9f9f9',
     overflow: 'auto',
     '@media (max-width: 1520px)': {
       justifyContent: 'center',

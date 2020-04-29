@@ -6,8 +6,9 @@ export const NotFoundPage: React.FC = () => {
 
   return (
     <div>
-      <h3> 404 buddy </h3>
-      <code>{pathname}</code>
+      <h3>
+        404 buddy, <code>{pathname}</code>
+      </h3>
     </div>
   )
 }

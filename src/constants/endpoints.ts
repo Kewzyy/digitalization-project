@@ -1,7 +1,7 @@
 import { composeAppRoute } from 'src/functions/helper-functions'
 
 export const HOME_PAGE_ENDPOINT = '/'
-export const SIGN_IN_ENDPOINT = '/sign-in'
+export const SIGN_IN_ENDPOINT = '/log-in'
 export const SIGN_UP_ENDPOINT = '/sign-up'
 export const FORGOT_PASSWORD_ENDPOINT = '/forgot-password'
 
