@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
     border: 0,
     borderRadius: '7px',
     margin: 20,
-    padding: 20,
     justifyContent: 'space-between',
   },
   rootDisabled: {
@@ -34,11 +33,15 @@ export const styles = StyleSheet.create({
     cursor: 'not-allowed',
     pointerEvents: 'none',
     margin: 20,
-    padding: 20,
     justifyContent: 'space-between',
   },
-  header: {},
+  header: {
+    margin: 0,
+    padding: '10px 15px',
+    backgroundColor: 'rgba(256,256,256, 0.6)',
+  },
   info: {
     justifyContent: 'flex-end',
+    padding: '5px 10px',
   },
 })

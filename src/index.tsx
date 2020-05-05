@@ -6,14 +6,18 @@ import { theme } from './config/theme'
 import { ApplicationRouter } from './Application'
 
 import * as serviceWorker from './serviceWorker'
+import { Provider } from 'react-redux'
+import { store } from './config/store'
 
 console.log('theme', theme)
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <ApplicationRouter />
-    </ThemeProvider>
+    <Provider store={store}>
+      <ThemeProvider theme={theme}>
+        <ApplicationRouter />
+      </ThemeProvider>
+    </Provider>
   )
 }
 

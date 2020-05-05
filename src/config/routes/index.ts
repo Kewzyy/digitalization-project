@@ -2,19 +2,20 @@ import { LandingPage } from 'src/components/pages/landing-page'
 import { TestComp } from 'src/components/core/test-component'
 import { SignInPage } from 'src/components/pages/sign-in-page'
 import {
-  MAIN_PAGE_ROUTE,
   LOG_IN_ROUTE,
   SIGN_UP_ROUTE,
   FORGOT_PASSWORD_ROUTE,
   RESTAURANT_PAGE_ROUTE,
+  RESERVATION_PAGE_ROUTE,
 } from 'src/constants'
 import { RestaurantPage } from 'src/components/pages/restaurant-page'
+import { ReservationPage } from 'src/components/pages/reservation-page'
 //TODO: uhmm fix this, add route params for app and modal
 export const appRoutes = [
   {
     title: 'Dine. | Book. Dine. Enjoy. ',
     key: 'LandingPage',
-    path: MAIN_PAGE_ROUTE,
+    path: '/',
     component: LandingPage,
     exact: true,
     renderOnly: true,
@@ -31,8 +32,8 @@ export const appRoutes = [
   {
     title: 'Book | Dine.',
     key: 'Booking',
-    path: '/booking',
-    component: TestComp,
+    path: RESERVATION_PAGE_ROUTE,
+    component: ReservationPage,
     renderOnly: true,
   },
   //Order at selected restaurant
