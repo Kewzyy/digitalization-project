@@ -1,9 +1,18 @@
 import { LandingPage } from 'src/components/pages/landing-page'
 import { TestComp } from 'src/components/core/test-component'
 import { SignInPage } from 'src/components/pages/sign-in-page'
-import { MAIN_PAGE_ROUTE, SIGN_IN_ROUTE, SIGN_UP_ROUTE, FORGOT_PASSWORD_ROUTE } from 'src/constants'
+import {
+  LOG_IN_ROUTE,
+  SIGN_UP_ROUTE,
+  FORGOT_PASSWORD_ROUTE,
+  RESTAURANT_PAGE_ROUTE,
+  RESERVATION_PAGE_ROUTE,
+  FOODMENU_PAGE_ROUTE,
+} from 'src/constants'
 import { RestaurantPage } from 'src/components/pages/restaurant-page'
 import { FoodMenu } from 'src/components/core/food-menu-component'
+import { ReservationPage } from 'src/components/pages/reservation-page'
+
 //TODO: uhmm fix this, add route params for app and modal
 export const appRoutes = [
   {
@@ -14,27 +23,30 @@ export const appRoutes = [
     exact: true,
     renderOnly: true,
   },
+  //Restaurants page
   {
     title: 'Restaurants | Dine. ',
     key: 'Restauraunts',
-    path: '/restaurants',
+    path: RESTAURANT_PAGE_ROUTE,
     component: RestaurantPage,
     renderOnly: true,
   },
+  //Book table at a selected restaurant
   {
     title: 'RestaurantName | Food Menu. ',
     key: 'FoodMenu',
-    path: '/foodmenu',
+    path: FOODMENU_PAGE_ROUTE,
     component: FoodMenu,
     renderOnly: true,
   },
   {
     title: 'Book | Dine.',
     key: 'Booking',
-    path: '/booking',
-    component: TestComp,
+    path: RESERVATION_PAGE_ROUTE,
+    component: ReservationPage,
     renderOnly: true,
   },
+  //Order at selected restaurant
   {
     title: 'Order | Dine. ',
     key: 'Order',
@@ -42,6 +54,7 @@ export const appRoutes = [
     component: TestComp,
     renderOnly: true,
   },
+  //Order confirmation
   {
     title: 'Your order | Dine. ',
     key: 'cart',
@@ -49,6 +62,7 @@ export const appRoutes = [
     component: TestComp,
     renderOnly: true,
   },
+  // Pay for your order
   {
     title: 'Pay | Dine. ',
     key: 'Pay',
@@ -62,7 +76,7 @@ export const modalAppRoutes = [
   {
     title: 'Login | Dine. ',
     key: 'Login',
-    path: SIGN_IN_ROUTE,
+    path: LOG_IN_ROUTE,
     component: SignInPage,
   },
   {
