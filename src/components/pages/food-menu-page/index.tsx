@@ -3,14 +3,15 @@ import { styles } from './styles'
 import { css } from 'aphrodite'
 import { FoodMenuPagePropsType } from './types'
 import { meal } from './types'
+import { AlertDialog } from 'src/components/core/simple-dialog'
 
-import { makeStyles } from '@material-ui/core/styles';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
+import Typography from '@material-ui/core/Typography';
 
 export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
 
@@ -27,15 +28,19 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
     <div className={css(styles.root)}>
       <GridList cellHeight={250} className={css(styles.gridList)}>
         <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
-          <ListSubheader component="div">This is a food menu</ListSubheader>
+          <ListSubheader component="div">Menu</ListSubheader>
         </GridListTile>
         {propMeals!.map((meal) => (
-          <GridListTile key={meal._id}>
-            <img src={process.env.PUBLIC_URL + "/img/meals/" + meal._id + '.png'} alt={meal.name}/>
+          <GridListTile key={meal._id} className={css(styles.tile)} >
+            <img
+              src={process.env.PUBLIC_URL + "/img/meals/" + meal._id + '.png'}
+              alt={meal.name}
+              className={css(styles.tileImg)}/>
             <GridListTileBar
-              title={meal.name}
-              subtitle={<span>{meal.type} <div className = {css(styles.price)}>  {meal.price} €</div></span>}
-            />
+              title={<Typography className={css(styles.gridListTileBarTitle)}>{meal.name}</Typography>}
+              subtitle={<span>{meal.type}</span>}
+              actionIcon={<AlertDialog name={meal.name} price={meal.price}/>}
+            ></GridListTileBar>
           </GridListTile>
         ))}
       </GridList>
