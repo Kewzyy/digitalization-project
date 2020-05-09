@@ -35,20 +35,10 @@ export const getMeals = async (foodType: string, callback: () => {}) => {
   }
 }
 
-export const getOrders = async (userId: string, callback: () => {}) => {
-  try {
-    const response = await axios.get('http://85.254.219.209:5000/users', {
-      auth: apiAuth,
-      params: {
-        userId: userId,
-      },
-    })
-    console.log('getMeals', response)
-    callback()
-  } catch (error) {
-    console.log('Error while fetching orders')
-    return error
-  }
+export const getOrders = () => {
+  return axios.get('http://85.254.219.209:5000/kitchen/orders', {
+    auth: apiAuth,
+  })
 }
 
 //I dunno man, seems sketch

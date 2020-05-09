@@ -4,12 +4,14 @@ import { SignInPage } from 'src/components/pages/sign-in-page'
 import {
   LOG_IN_ROUTE,
   SIGN_UP_ROUTE,
+  KITCHEN_ORDERS_ROUTE,
   FORGOT_PASSWORD_ROUTE,
   RESTAURANT_PAGE_ROUTE,
   RESERVATION_PAGE_ROUTE,
 } from 'src/constants'
 import { RestaurantPage } from 'src/components/pages/restaurant-page'
 import { ReservationPage } from 'src/components/pages/reservation-page'
+import { KitchenPage } from 'src/components/pages/kitchen-page'
 //TODO: uhmm fix this, add route params for app and modal
 export const appRoutes = [
   {
@@ -72,6 +74,12 @@ export const appRoutes = [
     key: 'LandingPage',
     path: SIGN_UP_ROUTE,
     component: TestComp,
+  },
+  {
+    title: 'Kitchen | Dine. ',
+    key: 'KitchenPage',
+    path: KITCHEN_ORDERS_ROUTE,
+    component: KitchenPage,
   },
 ]
 

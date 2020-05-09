@@ -1,5 +1,6 @@
 export const LOG_IN_ROUTE = '/log-in'
 export const SIGN_UP_ROUTE = '/sign-up'
+export const KITCHEN_ORDERS_ROUTE = '/kitchen/orders'
 export const FORGOT_PASSWORD_ROUTE = '/:path*/forgot-password'
 
 export const RESTAURANT_PAGE_ROUTE = '/restaurants'
