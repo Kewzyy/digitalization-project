@@ -9,8 +9,6 @@ import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
 import { store } from './config/store'
 
-console.log('theme', theme)
-
 const App = () => {
   return (
     <Provider store={store}>

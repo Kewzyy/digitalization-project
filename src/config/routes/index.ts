@@ -60,15 +60,28 @@ export const appRoutes = [
     component: TestComp,
     renderOnly: true,
   },
-]
-
-export const modalAppRoutes = [
+  //TODO: Fix the fucking router
   {
     title: 'Login | Dine. ',
     key: 'Login',
     path: LOG_IN_ROUTE,
     component: SignInPage,
   },
+  {
+    title: 'Register | Dine. ',
+    key: 'LandingPage',
+    path: SIGN_UP_ROUTE,
+    component: TestComp,
+  },
+]
+
+export const modalAppRoutes = [
+  // {
+  //   title: 'Login | Dine. ',
+  //   key: 'Login',
+  //   path: LOG_IN_ROUTE,
+  //   component: SignInPage,
+  // },
   {
     title: 'Register | Dine. ',
     key: 'LandingPage',

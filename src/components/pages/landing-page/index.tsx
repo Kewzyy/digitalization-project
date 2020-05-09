@@ -6,8 +6,16 @@ import { css } from 'aphrodite'
 
 import { LandingPageProps } from './types'
 import { styles, rootStyles } from './styles'
+import { getUsers } from 'src/api/requests'
 
 export const LandingPage: React.FC<LandingPageProps> = () => {
+  const doneLoading = () => {
+    console.log('Done loading')
+    return true
+  }
+  const handleSignUp = () => {
+    getUsers(doneLoading)
+  }
   return (
     <div className={rootStyles}>
       <Appbar />
@@ -15,7 +23,7 @@ export const LandingPage: React.FC<LandingPageProps> = () => {
         <Typography variant='h2' color='textSecondary'>
           Book. Dine. Enjoy.
         </Typography>
-        <Button variant='contained' className={css(styles.signUpButton)}>
+        <Button variant='contained' className={css(styles.signUpButton)} onClick={handleSignUp}>
           Sign up
         </Button>
       </div>
