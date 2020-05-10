@@ -37,7 +37,7 @@ export const FoodCard: React.FC<FoodCardTypeProps> = ({
           <Typography>{title}</Typography>
         </div>
         <div className={css(styles.infoItem)}>
-          <Typography>{`€ ${price.toFixed(2)}`}</Typography>
+          <Typography color='primary'>{`€ ${price.toFixed(2)}`}</Typography>
         </div>
       </div>
       <div

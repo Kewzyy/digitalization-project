@@ -9,6 +9,8 @@ import { groupBy } from 'src/functions/helper-functions'
 import { FoodMenuPagePropsType } from './types'
 import { GroupedMealType } from 'src/types'
 import { styles } from './styles'
+import { FoodCategory } from 'src/components/core/food-category'
+import { type } from 'os'
 
 export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
   const [
@@ -33,17 +35,20 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
       <div className={css(styles.root)}>
         <div className={css(styles.container)}>
           {Object.keys(foodMenu).map(type => {
-            return foodMenu[type].map(meal => {
-              return (
-                <FoodCard
-                  key={`${meal._id}-key`}
-                  title={meal.name}
-                  price={meal.price}
-                  id={meal._id}
-                  available={true}
-                />
-              )
-            })
+            return [
+              <FoodCategory category={type} />,
+              foodMenu[type].map(meal => {
+                return (
+                  <FoodCard
+                    key={`${meal._id}-key`}
+                    title={meal.name}
+                    price={meal.price}
+                    id={meal._id}
+                    available={true}
+                  />
+                )
+              }),
+            ]
           })}
         </div>
       </div>
