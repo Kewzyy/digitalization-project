@@ -11,17 +11,23 @@ import { GroupedMealType } from 'src/types'
 import { styles } from './styles'
 import { FoodCategory } from 'src/components/core/food-category'
 import { type } from 'os'
+import { CircularProgress } from '@material-ui/core'
 
 export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
   const [
     foodMenu,
     setfoodMenu,
   ] = React.useState<GroupedMealType>({})
+  const [
+    loaded,
+    setLoaded,
+  ] = React.useState<boolean>(false)
 
   React.useEffect(() => {
     getMeals()
       .then((res: any) => {
         const mealsGrouped = groupBy(res.data, 'type')
+        setLoaded(true)
         setfoodMenu(mealsGrouped)
       })
       .catch(err => {
@@ -34,6 +40,7 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
       <Appbar darkTheme />
       <div className={css(styles.root)}>
         <div className={css(styles.container)}>
+          {!loaded && <CircularProgress color='secondary' />}
           {Object.keys(foodMenu).map(type => {
             return [
               <FoodCategory category={type} />,
