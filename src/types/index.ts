@@ -1,2 +1,3 @@
 export * from './router-types'
-export * from './restaurantTypes'
+export * from './restaurant-type'
+export * from './meal-type'

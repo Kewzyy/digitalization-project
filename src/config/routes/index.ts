@@ -8,12 +8,12 @@ import {
   FORGOT_PASSWORD_ROUTE,
   RESTAURANT_PAGE_ROUTE,
   RESERVATION_PAGE_ROUTE,
-  FOODMENU_PAGE_ROUTE,
+  ORDER_PAGE_ROUTE,
 } from 'src/constants'
 import { RestaurantPage } from 'src/components/pages/restaurant-page'
-import { FoodMenu } from 'src/components/core/food-menu-component'
 import { ReservationPage } from 'src/components/pages/reservation-page'
 import { KitchenPage } from 'src/components/pages/kitchen-page'
+import { FoodMenuPage } from 'src/components/pages/food-menu-page'
 
 //TODO: uhmm fix this, add route params for app and modal
 export const appRoutes = [
@@ -33,14 +33,6 @@ export const appRoutes = [
     component: RestaurantPage,
     renderOnly: true,
   },
-  //Book table at a selected restaurant
-  {
-    title: 'RestaurantName | Food Menu. ',
-    key: 'FoodMenu',
-    path: FOODMENU_PAGE_ROUTE,
-    component: FoodMenu,
-    renderOnly: true,
-  },
   {
     title: 'Book | Dine.',
     key: 'Booking',
@@ -52,8 +44,8 @@ export const appRoutes = [
   {
     title: 'Order | Dine. ',
     key: 'Order',
-    path: '/order',
-    component: TestComp,
+    path: ORDER_PAGE_ROUTE,
+    component: FoodMenuPage,
     renderOnly: true,
   },
   //Order confirmation

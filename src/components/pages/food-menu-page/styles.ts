@@ -4,12 +4,19 @@ export const styles = StyleSheet.create({
   root: {
     display: 'flex',
     flexWrap: 'wrap',
-    justifyContent: 'space-around',
-    overflow: 'hidden',
-    backgroundColor: '#ff9966',
-    backgroundImage: 'linear-gradient(to right, #ff9966, #ff5e62)',
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 'calc(100vh - 96px)',
+    top: '96px',
+    position: 'relative',
+    backgroundColor: '#f9f9f9',
+    overflow: 'auto',
   },
-  gridListTileBarTitle:{
+  container: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  gridListTileBarTitle: {
     overflow: 'hidden',
   },
   gridList: {
@@ -24,7 +31,7 @@ export const styles = StyleSheet.create({
     transition: 'transform 1s, filter .3s ease-out',
     transformOrigin: '75% 95%',
     ':hover': {
-      transform: 'scale(2)'
+      transform: 'scale(2)',
     },
   },
   icon: {
