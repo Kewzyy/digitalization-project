@@ -3,7 +3,7 @@ import { RestaurantType } from 'src/types'
 export const restaurants: RestaurantType[] = [
   {
     name: 'Bon Temps',
-    active: true,
+    active: false,
     imageUrl: '/img/restaurants/bon-temps.jpeg',
   },
   {
@@ -23,7 +23,12 @@ export const restaurants: RestaurantType[] = [
   },
   {
     name: 'Hilltop',
-    active: true,
+    active: false,
     imageUrl: '/img/restaurants/hilltop.jpeg',
+  },
+  {
+    name: 'Rossini',
+    active: true,
+    imageUrl: '/img/restaurants/rossini.jpg',
   },
 ]
