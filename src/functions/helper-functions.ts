@@ -16,3 +16,13 @@ export const groupBy = (array: any[], key: string | number) => {
     return result
   }, {})
 }
+
+export const getOrderTotal = (order: MealType[]): number => {
+  var sum = 0
+  Object.values(order).map(item => {
+    if (item.price) {
+      sum += item.price
+    }
+  })
+  return sum
+}

@@ -1,10 +1,12 @@
 import { API_USERNAME, API_PASSWORD, API_HOST } from 'src/config/env-config'
+import { MealType } from 'src/types'
 const axios = require('axios').default
 
 const apiAuth = {
   username: API_USERNAME,
   password: API_PASSWORD,
 }
+//gets
 
 export const getUsers = async (callback: () => {}) => {
   try {
@@ -29,6 +31,21 @@ export const getOrders = () => {
   return axios.get(API_HOST + '/kitchen/orders', {
     auth: apiAuth,
   })
+}
+
+// posts
+export const postOrder = async (id: string, order: MealType[], tableId: string, status: string) => {
+  return axios.post(
+    API_HOST + `/users/${id}/order`,
+    {
+      meals: order,
+      tableId: tableId,
+      status: status,
+    },
+    {
+      auth: apiAuth,
+    },
+  )
 }
 
 //I dunno man, seems sketch

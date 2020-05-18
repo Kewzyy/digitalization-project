@@ -9,12 +9,14 @@ import {
   RESTAURANT_PAGE_ROUTE,
   RESERVATION_PAGE_ROUTE,
   ORDER_PAGE_ROUTE,
+  SUCCESS_PAGE_ROUTE,
 } from 'src/constants'
 import { RestaurantPage } from 'src/components/pages/restaurant-page'
 import { ReservationPage } from 'src/components/pages/reservation-page'
 import { KitchenPage } from 'src/components/pages/kitchen-page'
 import { FoodMenuPage } from 'src/components/pages/food-menu-page'
-
+import { CartPage } from 'src/components/pages/cart-page'
+import { SuccesfulPage } from 'src/components/pages/succesful-page'
 //TODO: uhmm fix this, add route params for app and modal
 export const appRoutes = [
   {
@@ -53,7 +55,7 @@ export const appRoutes = [
     title: 'Your order | Dine. ',
     key: 'cart',
     path: '/cart',
-    component: TestComp,
+    component: CartPage,
     renderOnly: true,
   },
   // Pay for your order
@@ -82,6 +84,12 @@ export const appRoutes = [
     key: 'KitchenPage',
     path: KITCHEN_ORDERS_ROUTE,
     component: KitchenPage,
+  },
+  {
+    title: 'Success | Dine. ',
+    key: 'SuccessPage',
+    path: SUCCESS_PAGE_ROUTE,
+    component: SuccesfulPage,
   },
 ]
 

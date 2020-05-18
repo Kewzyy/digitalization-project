@@ -1,15 +1,11 @@
 import { StyleSheet } from 'aphrodite'
 
 export const styles = StyleSheet.create({
-  root: {
+  innerContainer: {
     display: 'flex',
-    flexWrap: 'wrap',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 'calc(100vh - 96px)',
-    top: '96px',
-    position: 'relative',
-    backgroundColor: '#f9f9f9',
-    overflow: 'auto',
+    height: '100vh',
   },
 })

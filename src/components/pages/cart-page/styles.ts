@@ -11,34 +11,27 @@ export const styles = StyleSheet.create({
     position: 'relative',
     backgroundColor: '#f9f9f9',
     overflow: 'auto',
-    minWidth: 405,
   },
   container: {
     display: 'flex',
-    flexDirection: 'column',
-  },
-  gridListTileBarTitle: {
-    overflow: 'hidden',
-  },
-  gridList: {
-    maxWidth: '80%',
-  },
-  tile: {
-    cursor: 'pointer',
-    minWidth: '280px',
+    flexWrap: 'wrap',
     justifyContent: 'center',
+    alignItems: 'center',
   },
-  tileImg: {
-    transition: 'transform 1s, filter .3s ease-out',
-    transformOrigin: '75% 95%',
-    ':hover': {
-      transform: 'scale(2)',
-    },
+  containerLeft: {
+    width: '50%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-end',
   },
-  icon: {
-    color: 'rgba(255, 255, 255, 0.54)',
-  },
-  price: {
-    float: 'right',
+  containerRight: {
+    width: '50%',
+    height: '100%',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'flex-start',
   },
 })

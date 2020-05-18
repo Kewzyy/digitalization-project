@@ -10,7 +10,6 @@ import { FoodMenuPagePropsType } from './types'
 import { GroupedMealType } from 'src/types'
 import { styles } from './styles'
 import { FoodCategory } from 'src/components/core/food-category'
-import { type } from 'os'
 import { CircularProgress } from '@material-ui/core'
 
 export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {

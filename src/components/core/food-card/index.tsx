@@ -10,6 +10,7 @@ export const FoodCard: React.FC<FoodCardTypeProps> = ({
   title,
   price,
   id,
+  added,
   available,
   addToCart,
 }) => {
@@ -18,6 +19,12 @@ export const FoodCard: React.FC<FoodCardTypeProps> = ({
     setAddedToCart,
   ] = React.useState(false)
 
+  const CardIcon =
+    added || addedToCart ? (
+      <CheckCircleOutlineIcon color='primary' fontSize='large' />
+    ) : (
+      <AddIcon color='action' fontSize='large' />
+    )
   return (
     <div className={css(styles.root)}>
       <div className={css(styles.addPanel)}>
@@ -25,11 +32,7 @@ export const FoodCard: React.FC<FoodCardTypeProps> = ({
           onClick={() => {
             setAddedToCart(!addedToCart)
           }}>
-          {!addedToCart ? (
-            <AddIcon color='action' fontSize='large' />
-          ) : (
-            <CheckCircleOutlineIcon color='primary' fontSize='large' />
-          )}
+          {CardIcon}
         </IconButton>
       </div>
       <div className={css(styles.infoPanel)}>

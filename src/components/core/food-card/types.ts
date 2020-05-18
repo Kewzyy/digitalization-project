@@ -4,4 +4,5 @@ export interface FoodCardTypeProps {
   id: number
   available?: boolean
   addToCart?: () => {}
+  added?: boolean
 }
