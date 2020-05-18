@@ -1,5 +1,11 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## For development build add '.env.development' file in the project root directory with the following content:
+
+REACT_APP_API_USERNAME=changeit
+REACT_APP_API_PASSWORD=changeit
+REACT_APP_API_HOST=changeit
+
 ## Available Scripts
 
 In the project directory, you can run:

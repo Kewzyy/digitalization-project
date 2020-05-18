@@ -12,8 +12,9 @@ switch (process.env.NODE_ENV) {
   default:
     path = `${__dirname}/../../.env.development`
 }
-dotenv.config({ path: path })
 
-export const API_USERNAME = process.env.API_USERNAME
+export const API_USERNAME = process.env.REACT_APP_API_USERNAME
+export const API_PASSWORD = process.env.REACT_APP_API_PASSWORD
+export const API_HOST = process.env.REACT_APP_API_HOST
 console.log('API_USERNAME', API_USERNAME)
-export const API_PASSWORD = process.env.API_PASSWORD
+console.log('API_HOST', API_HOST)
