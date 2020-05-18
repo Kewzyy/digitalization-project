@@ -38,10 +38,11 @@ export const styles = StyleSheet.create({
   header: {
     margin: 0,
     padding: '10px 15px',
-    backgroundColor: 'rgba(256,256,256, 0.6)',
+    backgroundColor: 'rgba(256,256,256, 0.3)',
   },
   info: {
     justifyContent: 'flex-end',
     padding: '5px 10px',
+    fontColor: '#ffffff',
   },
 })
