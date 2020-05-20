@@ -7,7 +7,7 @@ import Link from '@material-ui/core/Link'
 import { theme } from 'src/config/theme'
 
 export const RestaurantCard: React.FC<RestaurantCardPropsType> = props => {
-  const { name, isActive, image } = props
+  const { name, isActive, image, onClick } = props
   const handleInfo = () => {
     console.log('handleInfo ::: out')
   }
@@ -15,7 +15,8 @@ export const RestaurantCard: React.FC<RestaurantCardPropsType> = props => {
   return (
     <div
       className={css(isActive ? styles.root : styles.rootDisabled)}
-      style={{ backgroundImage: `url(${image})` }}>
+      style={{ backgroundImage: `url(${image})` }}
+      onClick={onClick}>
       <div className={css(styles.header)}>
         <Typography variant='h5'>{name}</Typography>
       </div>

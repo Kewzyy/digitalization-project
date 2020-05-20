@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import { reducer as appReducer } from './core/app'
+import orderlistReducer from './order-list-reducer'
 
 export const reducers = combineReducers({
-  app: appReducer,
+  orders: orderlistReducer,
 })

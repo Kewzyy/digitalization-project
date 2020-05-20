@@ -1,3 +1,5 @@
+import { MealType } from 'src/types'
+
 export interface FoodCardTypeProps {
   title: string
   price: number
@@ -5,4 +7,6 @@ export interface FoodCardTypeProps {
   available?: boolean
   addToCart?: () => {}
   added?: boolean
+  meal?: MealType
+  onClick?: () => void
 }

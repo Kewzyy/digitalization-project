@@ -47,14 +47,14 @@ export const postOrder = async (id: string, order: MealType[], tableId: string, 
     },
   )
 }
+export const deleteOrder = async (id: string) => {
+  return axios.delete(API_HOST + `/kitchen/order/${id}`, {
+    auth: apiAuth,
+  })
+}
 
 //I dunno man, seems sketch
-export const addUser = async (
-  fullName: string,
-  email: string,
-  password: string,
-  callback?: () => {},
-) => {
+export const addUser = async (fullName: string, email: string, password: string, callback?: () => {}) => {
   const request = await axios.post(
     API_HOST + '/users/add',
     {

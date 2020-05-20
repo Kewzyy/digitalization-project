@@ -7,8 +7,9 @@ import { ApplicationRouter } from './Application'
 
 import * as serviceWorker from './serviceWorker'
 import { Provider } from 'react-redux'
-import { store } from './config/store'
+import { store } from './store/store'
 
+console.log('App -> store', store.getState())
 const App = () => {
   return (
     <Provider store={store}>

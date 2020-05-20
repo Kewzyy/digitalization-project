@@ -7,10 +7,11 @@ import { getMeals } from 'src/api/requests'
 import { groupBy } from 'src/functions/helper-functions'
 
 import { FoodMenuPagePropsType } from './types'
-import { GroupedMealType } from 'src/types'
+import { GroupedMealType, MealType } from 'src/types'
 import { styles } from './styles'
 import { FoodCategory } from 'src/components/core/food-category'
-import { CircularProgress } from '@material-ui/core'
+import { CircularProgress, Button } from '@material-ui/core'
+import { useHistory } from 'react-router-dom'
 
 export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
   const [
@@ -21,7 +22,12 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
     loaded,
     setLoaded,
   ] = React.useState<boolean>(false)
+  const [
+    order,
+    setOrder,
+  ] = React.useState<any>([])
 
+  const history = useHistory()
   React.useEffect(() => {
     getMeals()
       .then((res: any) => {
@@ -33,13 +39,26 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
         console.log('ERR_2', err)
       })
   }, [])
-
+  const addToOrder = (meal: MealType) => {
+    console.log('meal', meal)
+    setOrder((order: any) => [
+      ...order,
+      meal,
+    ])
+  }
+  const handleOrder = () => {
+    if (order) {
+      localStorage.setItem('order', JSON.stringify(order))
+      history.push('/cart')
+    }
+  }
   return (
     <React.Fragment>
       <Appbar darkTheme />
       <div className={css(styles.root)}>
         <div className={css(styles.container)}>
           {!loaded && <CircularProgress color='secondary' />}
+
           {Object.keys(foodMenu).map(type => {
             return [
               <FoodCategory category={type} />,
@@ -50,12 +69,21 @@ export const FoodMenuPage: React.FC<FoodMenuPagePropsType> = props => {
                     title={meal.name}
                     price={meal.price}
                     id={meal._id}
+                    meal={meal}
                     available={true}
+                    onClick={() => {
+                      addToOrder(meal)
+                    }}
                   />
                 )
               }),
             ]
           })}
+          {loaded && (
+            <Button variant='contained' className={css(styles.button)} onClick={handleOrder}>
+              Order food
+            </Button>
+          )}
         </div>
       </div>
     </React.Fragment>

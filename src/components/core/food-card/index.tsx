@@ -5,7 +5,8 @@ import { css } from 'aphrodite'
 import { IconButton, Typography } from '@material-ui/core'
 import AddIcon from '@material-ui/icons/Add'
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline'
-
+import { type } from 'os'
+import { MealType } from 'src/types'
 export const FoodCard: React.FC<FoodCardTypeProps> = ({
   title,
   price,
@@ -13,6 +14,8 @@ export const FoodCard: React.FC<FoodCardTypeProps> = ({
   added,
   available,
   addToCart,
+  meal,
+  onClick,
 }) => {
   const [
     addedToCart,
@@ -31,6 +34,7 @@ export const FoodCard: React.FC<FoodCardTypeProps> = ({
         <IconButton
           onClick={() => {
             setAddedToCart(!addedToCart)
+            onClick && onClick()
           }}>
           {CardIcon}
         </IconButton>

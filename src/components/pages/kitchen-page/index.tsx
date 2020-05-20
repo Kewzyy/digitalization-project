@@ -7,36 +7,42 @@ import { css } from 'aphrodite'
 import { KitchenPageProps } from './types'
 import { styles } from './styles'
 import { getUsers, getOrders } from 'src/api/requests'
+import { KitchenAppbar } from 'src/components/core/kitchen-app-bar'
+import { KitchenStats } from 'src/types'
+import { OrderType } from 'src/types/order-type'
+import { KitchenOrder } from 'src/components/core/kitchen-order'
 
 export const KitchenPage: React.FC<KitchenPageProps> = () => {
-    const [orders, setOrders] = React.useState([])
+  const [
+    orders,
+    setOrders,
+  ] = React.useState<OrderType[]>([])
+  const [
+    kitchenStats,
+    setKitchenStats,
+  ] = React.useState<KitchenStats>({})
 
-    React.useEffect(() => {
-        getOrders().then((r: any) => {
-            setOrders(r.data)
-        }
-        ).catch((e: any) => { })
-    }, [])
+  React.useEffect(() => {
+    getOrders()
+      .then((r: any) => {
+        console.log(r.data)
+        setOrders(r.data)
+        const activeOrders = r.data.length
+        setKitchenStats({ activeOrders: activeOrders })
+      })
+      .catch((e: any) => {})
+  }, [])
 
-    return (
-        <div className={css(styles.root)}>
-            <h1>Kitchen Orders</h1>
-            <br />
-            <div className={css(styles.orders)}>
-                {orders.map((item: any) => (
-                    <div className={css(styles.order)} key={item._id}>
-                        <h3>Order #{item._id}</h3>
-                        <h3>Table #{item.tableId}</h3>
-                        <br />
-                        {item.meals.map((meal: any) => (
-                            <p key={meal._id}>
-                                {`${meal.name}: € ${meal.price.toFixed(2)}`}
-                            </p>
-                        ))}
-                    </div>
-                ))}
-            </div>
-        </div>
+  return (
+    <div className={css(styles.root)}>
+      <KitchenAppbar
+        activeOrders={kitchenStats.activeOrders}
+        acceptedOrders={kitchenStats.acceptedOrders}
+      />
 
-    )
+      {orders.map(order => {
+        return <KitchenOrder key={order._id} order={order} />
+      })}
+    </div>
+  )
 }
